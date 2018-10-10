@@ -74,7 +74,9 @@ Vagrant.configure("2") do |config|
   # SHELL
 	
   config.vm.provision "chef_solo" do |chef|
-	chef.add_recipe "minginx"
+	# chef.add_recipe "minginx"
+	chef.roles_path = "chef/roles_enabled"
+    chef.add_role ""
   end
 	
 	
