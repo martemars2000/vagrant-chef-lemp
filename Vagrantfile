@@ -72,12 +72,18 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  config.berkshelf.enabled = true
+
 	
   config.vm.provision "chef_solo" do |chef|
 	# chef.add_recipe "minginx" 
-	# chef.cookbooks_path = ["cookbooks", "my_cookbooks"]
-	chef.roles_path = "chef/roles_enabled"
-    chef.add_role ""
+	#chef.cookbooks_path = ["cookbooks", "env-cookbook-main"]
+	#chef.roles_path = "chef/roles_enabled"
+    #chef.add_role "main"
+	chef.run_list = [
+		"recipe[env-cookbook-main]",
+		"recipe[nginx]"
+	]
   end
 	
 	
