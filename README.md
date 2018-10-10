@@ -23,6 +23,13 @@ Go to the [download](https://www.vagrantup.com/downloads.html) page, choose the 
     wget -c 'https://releases.hashicorp.com/vagrant/2.1.5/vagrant_2.1.5_x86_64.deb'
     sudo dpkg -i vagrant_2.1.5_x86_64.deb
 
+Now install Vagrant plugins
+	
+	# Berkshelf handle chef cookbooks dependencies
+	vagrant plugin install vagrant-berkshelf
+	# Keep your VirtualBox Guest Additions up to date
+	vagrant plugin install vagrant-vbguest
+
 	
 ### 3. Start (init) the VM with Vagrant
 
@@ -36,11 +43,6 @@ Once the VM is loaded, enter on http://192.168.33.199 to check if the services a
 
 Tips for work on this setup
 ---------------------------
-
-### Update files on the shared folder to start working
-
-The shared folder points to "/var/www/html/" folder, that makes easier to edit 
-
 
 ### Update files on the shared folder to start working
 
